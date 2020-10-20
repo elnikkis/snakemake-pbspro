@@ -1,0 +1,4 @@
+cluster: 'qsub -N {rule} -q {cluster.queue} -j oe -l select={cluster.nodes}:ncpus={cluster.ncpus}:mem={cluster.mem}:ngpus={cluster.ngpus},walltime={cluster.walltime} {cluster.opt}'
+jobs: 500
+jobscript: "pbs-jobscript.sh"
+latency-wait: 40

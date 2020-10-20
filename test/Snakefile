@@ -1,0 +1,42 @@
+configfile: "config.yaml"
+
+indexes = [i+1 for i in range(config['N'])]
+
+rule default:
+    input:
+        'final.out'
+
+
+rule step1:
+    input:
+        config['datapath']
+    output:
+        'step1.out'
+    shell:
+        '''
+        sleep 10
+        cat {input} > {output}
+        '''
+
+rule step2:
+    input:
+        'step1.out'
+    output:
+        'step2/{i}.out'
+    shell:
+        '''
+        sleep 15
+        cat {input} | sed -n {wildcards.i}p > {output}
+        echo '{wildcards.i}' `hostname` >> {output}
+        '''
+
+rule step3:
+    input:
+        expand('step2/{i}.out', i=indexes)
+    output:
+        'final.out'
+    shell:
+        '''
+        cat {input} > {output}
+        echo 'finished' >> {output}
+        '''

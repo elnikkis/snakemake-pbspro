@@ -1,0 +1,4 @@
+.python-version
+.snakemake/
+*.o[0-9]*
+*.out
