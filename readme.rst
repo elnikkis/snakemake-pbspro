@@ -1,8 +1,6 @@
 snakemakeのTUTのHPCクラスタ（xdev）用設定ファイル
 =====================================================
 
-This is a snakefile profile for pbspro. This repository contains settings specific to our university's cluster system.
-
 クラスタについて
    https://hpcportal.imc.tut.ac.jp/wiki/
 
