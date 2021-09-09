@@ -2,15 +2,6 @@
     "__default__":
     {
         "queue": "wLrchq",
-        "walltime": "24:00:00",
-        "nodes": 1,
-        "ncpus": 1,
-        "mem": "6gb",
-        "ngpus": 0,
         "opt": "-v SINGULARITY_IMAGE=imc.tut.ac.jp/centos7:2019.09"
-    },
-    "step2":
-    {
-        "mem": "30gb"
     }
 }

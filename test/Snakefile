@@ -12,6 +12,10 @@ rule step1:
         config['datapath']
     output:
         'step1.out'
+    threads: 2
+    resources:
+        ngpus=0,
+        nodes=2,
     shell:
         '''
         sleep 10
@@ -23,6 +27,9 @@ rule step2:
         'step1.out'
     output:
         'step2/{i}.out'
+    resources:
+        mem_mb=30000,
+        walltime_hour=3,
     shell:
         '''
         sleep 15
