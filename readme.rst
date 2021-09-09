@@ -23,12 +23,12 @@ pbsproディレクトリの中身（Snakemakeのプロファイル）を設置�
 実行方法
 -------------
 
+testディレクトリの中でテスト実行ができる。
 
 ::
 
    snakemake --profile pbspro --cluster-config cluster.json
 
-testディレクトリの中でテスト実行ができるようにしてある。
 
 
 対応しているジョブの設定値
@@ -37,23 +37,28 @@ testディレクトリの中でテスト実行ができるようにしてある�
 Snakemakeのタスクそれぞれがバッチジョブとして投入される。
 
 
+cluster.jsonでの設定：
+
 queue
    投入するキューの名前
+
+opt
+   その他追加したいqsubのオプション文字列
+
+
+各taskのresourcesセクションでの設定：
 
 nodes
    そのジョブが利用するノード数
 
-ncpus
-   ノード内の並列数
-
-mem
-   利用するメモリ容量（単位を書き忘れるとひどいことになります）
+mem_mb
+   利用するメモリ量(MB単位)
 
 ngpus
    ノードあたりのGPUの数
 
-walltime
-   ジョブ実行時間（例：24:00:00）
+walltime_hour
+   ジョブ実行時間（1時間単位）
 
-opt
-   その他追加したいqsubのオプション文字列
+
+threadsセクションで設定：利用CPU数
