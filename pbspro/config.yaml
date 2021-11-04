@@ -3,7 +3,7 @@ jobs: 500
 jobscript: "pbs-jobscript.sh"
 latency-wait: 40
 default-resources:
-    - 'mem_mb=3000'
-    - 'walltime_hour=23'
+    - 'mem_mb=6000'
+    - 'walltime_hour=48'
     - 'ngpus=0'
     - 'nodes=1'
